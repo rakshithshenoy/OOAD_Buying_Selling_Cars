@@ -1,0 +1,53 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My cart</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.css">
+</head>
+<body>
+<h1>My cart</h1>
+<h3>user name: <span th:text="${username}"></span></h3>
+<table border="2">
+
+    <thead class="table-dark">
+    <tr>
+        <th>
+            OrderID
+        </th>
+        <th>
+            Date
+        </th>
+        <th>
+            Total
+        </th>
+        <th>
+            Return
+        </th>
+        <th>
+            Bill
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="bill:${orders}">
+        <td th:iniline="text">[[${bill.orderID}]]</td>
+        <td th:iniline="text">[[${bill.date_time}]]</td>
+        <td th:iniline="text">[[${bill.total}]]</td>
+        <td>
+            <!--                <a href="/addtocart"><button type="submit">add to cart</button></a>-->
+            <a th:href="@{/return(customer=${username})}" class="btn btn-info">Return/Exchange</a>
+        </td>
+        <td>
+            <!--                <a href="/addtocart"><button type="submit">add to cart</button></a>-->
+            <a th:href="@{/viewbill(customer=${username},cartID=${bill.orderID})}" class="btn btn-info">BILL</a>
+        </td>
+
+
+    </tr>
+    </tbody>
+</table>
+<a href="/home" class="btn btn-info">HOME</a>
+
+</body>
+</html>
+
+

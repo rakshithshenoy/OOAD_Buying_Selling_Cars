@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body align="center">
+<h1>RETAILER DASHBOARD</h1>
+<h3>retailer name: <span th:text="${r_name}"></span></h3>
+<a th:href="@{/retailerview(r_name=${r_name})}">view products</a>
+<a href="/index">HOME</a>
+<a th:href="@{/addproducts(r_name=${r_name})}">add products</a>
+</body>
+</html>

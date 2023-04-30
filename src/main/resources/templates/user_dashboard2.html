@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Online-Shopping Web</title>
+    <link rel="stylesheet" type="text/css" href="css/style2.css" />
+  </head>
+  <body>
+    <h3>user name: <span th:text="${customer}"></span></h3>
+    <header id="home">
+      <nav>
+        <div class="logo">Car Store</div>
+        <h3>user name: <span th:text="${username}"></span></h3>
+
+        <div class="logo">
+          <form method="get" action="/products">
+            <input
+              id="search-text"
+              name="p_name"
+              type="text"
+              placeholder="search here"
+            />
+            <input
+              id="user-text-input"
+              name="u_name"
+              type="hidden"
+              th:value="${username}"
+            />
+            <button type="submit" id="search-button">Search</button>
+          </form>
+        </div>
+        <div class="menu">
+          <!-- <a href="/home">Home</a> -->
+          <a th:href="@{/viewcart(customer=${username})}">My cart</a>
+          <a th:href="@{/vieworders(customer=${username})}">My orders</a>
+          <a href="/logout">Log out</a>
+        </div>
+      </nav>
+
+      <div class="container">
+        <div class="left">
+          <img src="images/bg1.jpg" />
+        </div>
+
+        <div class="right">
+          <h1>Best Festival Offers</h1>
+          <p>We are providing trusted service to buy or sell your car.</p>
+
+          <button>Shop</button><br />
+          <img src="images/icon.png" />
+        </div>
+      </div>
+    </header>
+    <section id="featured">
+      <h1>Featured</h1>
+    </section>
+
+    <section id="man">
+      <div class="man-row">
+        <div class="man-box">
+          <img src="images/suvcar.jpg" />
+          <h2>SUV</h2>
+          <h3><a th:href="@{/viewstationary(name=${username})}">view</a></h3>
+        </div>
+        <div class="man-box">
+          <img src="images/sportscar.jpg" />
+          <h2>Sports</h2>
+          <h3><a th:href="@{/viewsports(name=${username})}">view</a></h3>
+        </div>
+        <div class="man-box">
+          <img src="images/sedancar.jpg" />
+          <h2>Sedan</h2>
+          <h3><a th:href="@{/viewappliances(name=${username})}">view</a></h3>
+        </div>
+        <div class="man-box">
+          <img src="images/hatchbackcar.jpg" />
+          <h2>Hatch back</h2>
+          <h3><a th:href="@{/viewgadgets(name=${username})}">view</a></h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- <section id="women">
+
+	<div class="man-row">
+		<div class="man-box">
+			<img src="images/s1.png">
+				<h2>Nike Ferr TR<br>$129.99</h2>
+			<h3>Add to cart </h3>
+		</div>
+		<div class="man-box">
+			<img src="images/s1.png">
+				<h2>Nike Ferr TR<br>$129.99</h2>
+			<h3>Add to cart </h3>
+		</div>
+		<div class="man-box">
+			<img src="images/s1.png">
+				<h2>Nike Ferr TR<br>$129.99</h2>
+			<h3>Add to cart </h3>
+		</div>
+		<div class="man-box">
+			<img src="images/s1.png">
+				<h2>Nike Ferr TR<br>$129.99</h2>
+			<h3>Add to cart </h3>
+		</div>
+	</div>
+</section> -->
+
+    <section id="footer">
+      <h2>Contact us</h2>
+      <img src="images/icon.png" />
+    </section>
+  </body>
+</html>
